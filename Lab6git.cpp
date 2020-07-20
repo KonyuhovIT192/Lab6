@@ -1,11 +1,18 @@
-﻿// Lab6git.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿
 
 #include <iostream>
+#include <locale.h>
+#include<stdio.h> 
+#define N 20 
 
 int main()
-{
-    std::cout << "Hello World!\n";
+{ 
+    setlocale(LC_CTYPE, ""); 
+    int list[N], i;
+    for (i = 0..19;)
+    printf("Элементы массива: \n "); 
+    for (i = 0; i < N; i++)  
+    printf("%d–й элемент: %d \n ", i + 1, list[i]);
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
