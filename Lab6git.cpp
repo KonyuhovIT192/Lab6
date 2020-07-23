@@ -4,16 +4,18 @@
 #include <locale.h>
 #include<stdio.h> 
 #define N 20 
-#define M 20 
+#define M 20
+#define V 20 
 
 int main()
 { 
     setlocale(LC_CTYPE, ""); 
-    int mas1[N] = { 1,1,1,1,4,4,5,5,5,1,1,3,3,3,3,3,7,7,7,7 }, mas2[M] = {}, i, j, a;
+    int mas1[N] = { 1,1,1,4,4,4,5,5,5,1,1,3,3,3,3,7,7,7,7,7 }, mas2[M] = {}, mas3[V] = {}, i, j, a, c;
     j = 0;
     a = 0;
+    c = 0;
     for (i = 0; i < N; i++)
-    {
+ 
         if (mas1[i] == mas1[i + 1])
         {
         }
@@ -23,27 +25,34 @@ int main()
             mas2[j + 1] = i + 1;
             j = j + 2;
         }
-    }
-        for (j = M-1; j >=0; j=j-2)
-           if (mas2[j] == 20) 
-
-               for (i = 0; i < mas2[j] - mas2[j - 2]; i++)
-                   mas1[i] = mas2[j - 1];
-           else
-               for (i = mas2[j] - 1; i>=mas2[1]; --i)
-                 mas1[i] = mas2[j - 1];
-            
-
     
-       
-            
+        for (j = M-1; j >=0; j=j-2)
+         if (mas2[j] == 20)
+         { 
+             a = mas2[j] - mas2[j - 2];
+            c = j;
+                for (i = 0; i < mas2[j] - mas2[j - 2]; i++)
+             mas3[i] = mas2[j - 1];
+                   
+         }   
+        for (i = V - 1; i > V-1-mas2[1]; --i)
+            mas3[i] = mas2[0];
    
-
+        for (j = 3; j < c; j = j + 2)
+        {
+            i = mas2[j] - mas2[j - 2];
+            while (i > 0)
+            {
+                mas3[a] = mas2[j - 1];
+                a = a + 1;
+                --i;
+            }
+        }
     printf("Элементы массива: \n "); 
     for (i = 0; i < N; i++)  
     printf("%d–й элемент: %d \n ", i + 1, mas1[i]);
     for (j = 0; j < M; j++)
-        printf("%d–й элемент: %d \n ", j + 1, mas2[j]);
+        printf("%d–й элемент: %d \n ", j + 1, mas3[j]);
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
