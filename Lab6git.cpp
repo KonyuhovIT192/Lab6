@@ -4,15 +4,31 @@
 #include <locale.h>
 #include<stdio.h> 
 #define N 20 
+#define M 10 
 
 int main()
 { 
     setlocale(LC_CTYPE, ""); 
-    int list[N], i;
-    for (i = 0..19;)
+    int mas1[N] = { 1,1,1,1,4,4,5,5,5,1,1,3,3,3,3,3,7,7,7,7 }, mas2[M], i,j;
+    j = 0;
+    for (i = 0; i < N; i++)
+    {
+        if (mas1[i] == mas1[i + 1])
+        { 
+        }
+        else
+        {
+            mas2[j] = i+1;
+            j = j++;
+        }
+            
+    }
+
     printf("Элементы массива: \n "); 
     for (i = 0; i < N; i++)  
-    printf("%d–й элемент: %d \n ", i + 1, list[i]);
+    printf("%d–й элемент: %d \n ", i + 1, mas1[i]);
+    for (j = 0; j < M; j++)
+        printf("%d–й элемент: %d \n ", j + 1, mas2[j]);
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
